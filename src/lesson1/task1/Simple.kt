@@ -49,8 +49,16 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main() {
-    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    println("Root product: $x1x2")
+//    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
+//    val seconds = seconds(8, 20, 35)
+
+//    println("Root product: $seconds")
+
+//    val lengthOfMeters = lengthInMeters(8, 2, 11)
+//    println(lengthOfMeters)
+
+    val r = angleInRadian(0, 0, 0)
+    println(r)
 }
 
 /**
@@ -59,7 +67,7 @@ fun main() {
  * Пользователь задает время в часах, минутах и секундах, например, 8:20:35.
  * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
  */
-fun seconds(hours: Int, minutes: Int, seconds: Int): Int = TODO()
+fun seconds(hours: Int, minutes: Int, seconds: Int): Int = hours * 60 * 60 + minutes * 60 + seconds
 
 /**
  * Тривиальная
@@ -68,7 +76,15 @@ fun seconds(hours: Int, minutes: Int, seconds: Int): Int = TODO()
  * Определить длину того же отрезка в метрах (в данном случае 18.98).
  * 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
  */
-fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
+fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double {
+    val lengthVershoksSm = 4.445
+    val lengthSagenesArshin = 3
+    val lengthArshinVershok = 16
+    val result: Double =
+        ((sagenes * lengthSagenesArshin * lengthArshinVershok * lengthVershoksSm) + (arshins * lengthArshinVershok * lengthVershoksSm) + (vershoks * lengthVershoksSm)) / 100
+    return result
+
+}
 
 /**
  * Тривиальная
@@ -76,7 +92,11 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
+    val result: Double = 180 / PI
+
+    return result
+}
 
 /**
  * Тривиальная
@@ -110,7 +130,12 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
  * Сколько денег будет на счету через 3 года (с учётом сложных процентов)?
  * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
  */
-fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
+fun accountInThreeYears(initial: Int, percent: Int): Double {
+    var result: Double = initial + (initial.toDouble() * percent / 100)
+    result += (result * percent / 100)
+    result += (result * percent / 100)
+    return result
+}
 
 /**
  * Простая
